@@ -1,12 +1,17 @@
 ////
 /*
-Program switch on or off led, if receive command "led1" or "led2" on serial port.
+Program ktory przelacza dwie diody led
+komendy wysyla sie portem szergowym
 */
 ////
 #define Led1 10
 #define Led2 2
-bool switchLed1 = false;
-bool switchLed2 = false;
+
+//struktura do przechowywania danych, dodana dla uproszczenia przesylania danych
+struct dataLogic{
+  bool switchLed1;
+  bool switchLed2;
+} dataS = {false,false};
 
 void setup() {
   // put your setup code here, to run once:
@@ -26,28 +31,40 @@ void loop() {
   
 }
 
+//przelacznik ledow
 void ledSwitch(){
   String rxData = Serial.readStringUntil('\n');
+  //sterowanie dioda 1
   if(rxData == "led1"){
-    if(switchLed1){
+    if(dataS.switchLed1){
       digitalWrite(Led1,LOW);
-      switchLed1 = false;
+      dataS.switchLed1 = false;
     }
     else{
       digitalWrite(Led1,HIGH);
-      switchLed1 = true;
+      dataS.switchLed1 = true;
     }
   }
+  //sterowanie dioda 2
   else if(rxData == "led2"){
-    if(switchLed2){
+    if(dataS.switchLed2){
       digitalWrite(Led2,LOW);
-      switchLed2 = false;
+      dataS.switchLed2 = false;
     }
     else{
       digitalWrite(Led2,HIGH);
-      switchLed2 = true;
+      dataS.switchLed2 = true;
     }
   }
   else
-    Serial.println("EXCEPTION: BAD COMMAND!");  
+    Serial.println("EXCEPTION: BAD COMMAND!");
+  
+  //wysylanie ramki z stanami diod    <-TBD
+  sendFrame(&dataS);  
+}
+
+//Tu bedzie wysylanie ramki z danymi <-TBD
+void sendFrame(const struct dataLogic * dataS){
+  Serial.println(dataS->switchLed1);
+  Serial.println(dataS->switchLed2);
 }
