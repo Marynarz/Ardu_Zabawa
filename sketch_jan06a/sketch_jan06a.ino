@@ -65,6 +65,10 @@ void ledSwitch(){
 
 //Tu bedzie wysylanie ramki z danymi <-TBD
 void sendFrame(const struct dataLogic * dataS){
-  Serial.println(dataS->switchLed1);
-  Serial.println(dataS->switchLed2);
+  //Serial.println(dataS->switchLed1);
+  //Serial.println(dataS->switchLed2);
+  int frame = dataS->switchLed1;
+  frame = frame<<1;
+  frame = frame | dataS->switchLed2;
+  Serial.println(frame);
 }
