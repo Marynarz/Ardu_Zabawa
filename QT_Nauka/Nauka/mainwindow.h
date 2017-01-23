@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QPushButton>
+#include <QTextCodec>
 
 namespace Ui {
 class MainWindow;
@@ -10,6 +12,7 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+    QPushButton *button;
 
 public:
     explicit MainWindow(QWidget *parent = 0);
