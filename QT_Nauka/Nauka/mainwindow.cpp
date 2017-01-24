@@ -29,5 +29,5 @@ MainWindow::~MainWindow()
 
 void MainWindow::foo()
 {
-    label->setText(tr("Wesoła etykieta ;)"));
+    label->setText(tr("Wesola etykieta ;)"));
 }
