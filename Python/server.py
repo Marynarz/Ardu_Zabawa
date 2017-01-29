@@ -31,3 +31,4 @@ while True:
                 break
     finally:
         connection.close()
+        break
