@@ -14,7 +14,12 @@ void Plansza::showPlansza()
     for(int i=0; i<y;i++)
     {
         for(int j=0;j<x;j++)
-            cout <<plansza[j][i]<<"\t";
+        {
+            if(plansza[j][i]!=0)
+                cout <<0<<"\t";
+            else
+                cout <<plansza[j][i]<<"\t";
+        }
         cout <<endl;
     }
 }
