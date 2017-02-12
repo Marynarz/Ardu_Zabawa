@@ -21,8 +21,8 @@ sock.connect(adress)
 try:
     message = input("Wiadomosc do wyslania: ")
     #wychodzenie z programu
-    if message = '0':
-        break
+    if message == '0':
+        sock.close()
     
     if Trejsy:
         print('Wysylanie: ',message)

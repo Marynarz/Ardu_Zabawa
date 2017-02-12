@@ -6,7 +6,7 @@ import socket
 import sys
 
 #logowanie do servera
-def startOfConnection(connection)
+def startOfConnection(connection):
     connection.sendall('---WITAJ---\nPodaj swoj login:')
     data = connection.recv(64)
     print("Login: ",data)
@@ -30,8 +30,9 @@ while True:
     try:
         print('Polaczenie z:',client_addres)
         #logujemy
-        login = startOfConnection(connection)
+        
         while True:
+            #login = startOfConnection(connection)
             #recv(bufor) - bufor najlepiej jako potega dwojki - zobaczymy jak zadziala z nowym parametrem
             data = connection.recv(4096)
             print('Odebrano: ',data);
