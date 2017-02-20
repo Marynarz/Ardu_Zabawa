@@ -34,6 +34,7 @@ private:
 
 private slots:
     void foo();
+    void on_button1_clicked();
 };
 
 #endif // MAINWINDOW_H

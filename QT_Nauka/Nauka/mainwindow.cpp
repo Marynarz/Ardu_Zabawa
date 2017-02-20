@@ -52,3 +52,8 @@ void MainWindow::createStatusBar()
 {
     statusBar()->showMessage(tr("Gotowy"));
 }
+
+void MainWindow::on_button1_clicked()
+{
+
+}
