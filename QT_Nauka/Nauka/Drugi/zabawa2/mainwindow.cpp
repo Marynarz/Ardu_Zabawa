@@ -15,5 +15,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-     label->setText(tr("&WesolaEtykieta"));
+     if(ui->pushButton->text() == QString("Hello World!"))
+         ui->pushButton->setText(tr("Dupa!"));
+     else
+         ui->pushButton->setText(tr("Hello World!"));
 }
