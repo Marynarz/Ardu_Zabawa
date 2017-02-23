@@ -20,7 +20,8 @@ public:
     void aktualizacjaCzasu(QTime czas);
 
 private slots:
-    void on_pushButton_clicked();
+    //void on_pushButton_clicked();
+    void startTimer();
 
 private:
     Ui::MainWindow *ui;
