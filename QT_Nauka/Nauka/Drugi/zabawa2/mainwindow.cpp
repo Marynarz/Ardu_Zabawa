@@ -5,7 +5,12 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    Labelka = true;
+    czas = QTime::currentTime();
     ui->setupUi(this);
+    aktualizacjaCzasu(czas);
+    ui->pushButton->setText(tr("Poczatek!"));
+
 }
 
 MainWindow::~MainWindow()
@@ -15,8 +20,15 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-     if(ui->pushButton->text() == QString("Hello World!"))
-         ui->pushButton->setText(tr("Dupa!"));
+     if(Labelka||(ui->pushButton->text() == QString("Hello World!")))
+        {ui->label->setText(tr("Dupa!"));
+         Labelka = false;}
      else
-         ui->pushButton->setText(tr("Hello World!"));
+        {aktualizacjaCzasu(QTime::currentTime());
+         Labelka = true;}
+}
+
+void MainWindow::aktualizacjaCzasu(QTime czas)
+{
+    ui->label->setText(czas.toString());
 }
